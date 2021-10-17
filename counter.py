@@ -39,6 +39,17 @@ def add_number():
 
     else:
         print("To nie jest liczba")
+        while not number.isnumeric():
+            print("Podaj ile zrobiłaś")
+            number = input()
+            counter_current = counter_current + int(number)
+            counter_goal = counter_goal - int(number)
+
+            save_file = open("countery.txt", "w")
+            save_file.write(str(counter_current) + "\n")
+            save_file.write(str(counter_goal))
+            save_file.close()
+        
 
 
 show_how_many_done()
